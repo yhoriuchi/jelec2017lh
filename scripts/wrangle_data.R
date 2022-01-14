@@ -115,4 +115,6 @@ for (i in 1:47){
 write_rds(smd_data, "output/smd_data.rds")
 write_rds(pr_data, "output/pr_data.rds")
 
+write_excel_csv(smd_data, "output/smd_data.csv")
+write_excel_csv(pr_data, "output/pr_data.csv")
 
