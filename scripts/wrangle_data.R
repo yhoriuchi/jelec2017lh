@@ -13,13 +13,17 @@ files2 <- list.files("downloaded/pr")
 
 # Function to read and wrangle data ---------------------------------------
 
+.file <- "000520875.xls"
+.type <- "pr"
+
 read_data <- function(.file, .type){
   
   filename <- paste0("downloaded/", .type, "/", .file)
+
   districts <- excel_sheets(filename)
   
   if (.type == "smd"){
-    
+
     out <- NULL
     
     for (i in seq_along(districts)){
@@ -84,7 +88,7 @@ read_data <- function(.file, .type){
       filter(!is.na(votes) & !is.na(parties)) %>% 
       mutate(votes = as.numeric(votes),
              file = .file, 
-             district = districts[i])
+             district = districts[1])
     
     return(out)
     
