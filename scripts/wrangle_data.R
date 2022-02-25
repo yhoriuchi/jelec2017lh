@@ -13,8 +13,8 @@ files2 <- list.files("downloaded/pr")
 
 # Function to read and wrangle data ---------------------------------------
 
-.file <- "000520875.xls"
-.type <- "pr"
+.file <- "000520926.xls"
+.type <- "smd"
 
 read_data <- function(.file, .type){
   
