@@ -35,12 +35,24 @@ for (i in 1:47){
   
 }
 
+# Very minor fix: The file extention is different for Mie-ken (PR).
+URLs <- URLs %>% 
+  mutate(url = ifelse(url == "https://www.soumu.go.jp/main_content/000965537.xls", 
+                      "https://www.soumu.go.jp/main_content/000965537.xlsx", 
+                      url),
+         file = ifelse(file == "000965537.xls", "000965537.xlsx", file))
+
+# Check
+URLs
+
 # Download all files ------------------------------------------------------
 
 smd <- URLs %>% filter(type == "smd")
 pr  <- URLs %>% filter(type == "pr") 
 
 for (i in 1:47){
+  
+  print(i)
   
   source1 <- smd[i, "url"]
   source2 <- pr[i, "url"]
